@@ -1,5 +1,11 @@
 <?php
 
+function exibeMensagem($mensagem)
+{
+  echo $mensagem . PHP_EOL;
+}
+
+
 $contaCorrentes = [
   '132.143.242-13' => [
     'titular' => 'Vinicius',
@@ -17,12 +23,12 @@ $contaCorrentes = [
 
 $contaCorrentes['132.143.242-14']['saldo'] -= 500;
 if (500 > $contaCorrentes['132.143.246-13']['saldo']) {
-  echo "Voce nao pode sacar este valor" . PHP_EOL;
+  exibeMensagem("Voce nao pode sacar este valor" . PHP_EOL);
 } else {
   $contaCorrentes['132.143.246-13']['saldo'] -= 500;
 }
 
 
 foreach ($contaCorrentes as $cpf => $conta) {
-  echo $cpf . ' ' . $conta['titular'] . ' ' . $conta['saldo'] . PHP_EOL;
+  exibeMensagem($cpf . ' ' . $conta['titular'] . ' ' . $conta['saldo'] . PHP_EOL);
 }

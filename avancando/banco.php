@@ -1,5 +1,25 @@
 <?php
 
+function sacar($conta, $valorASacar)
+{
+  if ($valorASacar > $conta['saldo']) {
+    exibeMensagem("Voce nao pode sacar este valor" . PHP_EOL);
+  } else {
+    $conta['saldo'] -= $valorASacar;
+  }
+  return $conta;
+}
+
+function adiciona2($x)
+{
+  return $x + 2;
+}
+
+$sete = adiciona2(5);
+exibeMensagem($sete);
+
+// exit();
+
 function exibeMensagem($mensagem)
 {
   echo $mensagem . PHP_EOL;
@@ -21,12 +41,12 @@ $contaCorrentes = [
   ],
 ];
 
-$contaCorrentes['132.143.242-14']['saldo'] -= 500;
-if (500 > $contaCorrentes['132.143.246-13']['saldo']) {
-  exibeMensagem("Voce nao pode sacar este valor" . PHP_EOL);
-} else {
-  $contaCorrentes['132.143.246-13']['saldo'] -= 500;
-}
+$contaCorrentes['132.143.242-14'] = sacar($contaCorrentes['132.143.242-14'], 500);
+$contaCorrentes['132.143.246-13'] = sacar($contaCorrentes['132.143.246-13'], 500);
+
+
+
+
 
 
 foreach ($contaCorrentes as $cpf => $conta) {

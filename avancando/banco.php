@@ -1,12 +1,24 @@
 <?php
 
-function sacar($conta, $valorASacar)
+function sacar(array $conta, float $valorASacar): array
 {
   if ($valorASacar > $conta['saldo']) {
     exibeMensagem("Voce nao pode sacar este valor" . PHP_EOL);
   } else {
     $conta['saldo'] -= $valorASacar;
   }
+  return $conta;
+}
+
+
+function depositar(array $conta, float $valorADepositar): array
+{
+  if ($valorADepositar > 0) {
+    $conta['saldo'] += $valorADepositar;
+  } else {
+    exibeMensagem('Depositos precisam ser positivos');
+  }
+
   return $conta;
 }
 
@@ -18,9 +30,8 @@ function adiciona2($x)
 $sete = adiciona2(5);
 exibeMensagem($sete);
 
-// exit();
 
-function exibeMensagem($mensagem)
+function exibeMensagem(string $mensagem): void
 {
   echo $mensagem . PHP_EOL;
 }
@@ -29,7 +40,7 @@ function exibeMensagem($mensagem)
 $contaCorrentes = [
   '132.143.242-13' => [
     'titular' => 'Vinicius',
-    'saldo' => 1000
+    'saldo' => 100
   ],
   '132.143.242-14' => [
     'titular' => 'Maria',
@@ -45,7 +56,15 @@ $contaCorrentes['132.143.242-14'] = sacar($contaCorrentes['132.143.242-14'], 500
 $contaCorrentes['132.143.246-13'] = sacar($contaCorrentes['132.143.246-13'], 500);
 
 
+$contaCorrentes['132.143.242-13'] = depositar(
+  $contaCorrentes['132.143.242-13'],
+  900
+);
 
+$contaCorrentes['132.143.242-13'] = depositar(
+  $contaCorrentes['132.143.242-13'],
+  -1200
+);
 
 
 

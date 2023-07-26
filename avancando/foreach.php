@@ -1,21 +1,25 @@
 <?php
 
 $contaCorrentes = [
-  1321432423 => [
+  '132.143.242-13' => [
     'titular' => 'Vinicius',
     'saldo' => 1000
   ],
-  1321432424 => [
+  '132.143.242-14' => [
     'titular' => 'Maria',
     'saldo' => 10000
   ],
-  1321432463 => [
+  '132.143.246-13' => [
     'titular' => 'Alberto',
     'saldo' => 300
   ],
 ];
 
+$contaCorrentes['154.143.246-13'] = [
+  'titular' => 'Claudia',
+  'saldo' => 400
+];
+
 foreach ($contaCorrentes as $cpf => $conta) {
-  echo $cpf;
-  echo $conta['titular'] . PHP_EOL;
+  echo $cpf . ' ' . $conta['titular'] . PHP_EOL;
 }

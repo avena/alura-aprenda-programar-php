@@ -38,6 +38,7 @@ $contaCorrentes['132.143.242-13'] = depositar(
   -1200
 );
 
+titularComLetrasMaiusculas($contaCorrentes['132.143.242-13']);
 
 
 foreach ($contaCorrentes as $cpf => $conta) {

@@ -35,3 +35,13 @@ function exibeMensagem(string $mensagem): void
 {
   echo $mensagem . PHP_EOL;
 }
+
+
+
+function titularComLetrasMaiusculas(array &$conta)
+{
+
+  $conta['titular'] = strtoupper($conta['titular']);
+  $conta['saldo'] = 0;
+  // echo $conta['titular'] . PHP_EOL;
+}

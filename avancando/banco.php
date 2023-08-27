@@ -42,5 +42,12 @@ titularComLetrasMaiusculas($contaCorrentes['132.143.242-13']);
 
 
 foreach ($contaCorrentes as $cpf => $conta) {
-  exibeMensagem("$cpf  {$conta['titular']}  {$conta['saldo']}");
+  // list($titular, $saldo) = $conta; // nao funciona por procupa por index numerico, como indice 0
+
+  list('titular' => $titular, 'saldo' => $saldo) = $conta;
+
+  // versão mais enxuta
+  ['titular' => $titular, 'saldo' => $saldo] = $conta;
+  exibeMensagem("$cpf  $titular  $saldo");
+  //exibeMensagem("$cpf  {$conta['titular']}  {$conta['saldo']}");
 }

@@ -38,6 +38,9 @@ $contaCorrentes['132.143.242-13'] = depositar(
   -1200
 );
 
+// removendo um item
+unset ($contaCorrentes['132.143.246-13']);
+
 titularComLetrasMaiusculas($contaCorrentes['132.143.242-13']);
 
 
